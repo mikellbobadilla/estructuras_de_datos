@@ -2,7 +2,13 @@ package ar.mikellbobadilla.lista_enlazada;
 
 import ar.mikellbobadilla.clases.Libro;
 
-public class listaEnlazada {
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
+public class ListaEnlazada {
 
   private Nodo cabeza = null;
   private int longitud = 0;
@@ -91,6 +97,8 @@ public class listaEnlazada {
     if(cabeza != null){
       if(n == 0){
         Nodo primer = cabeza;
+
+
         cabeza = cabeza.siguiente;
         primer.siguiente = null;
         longitud--;
@@ -128,4 +136,15 @@ public class listaEnlazada {
     }
   }
 
+
+  public static void main(String[] args) {
+    ListaEnlazada libros = new ListaEnlazada();
+
+    Libro l = new Libro("Caperucita Roja", "Sting", "1234567890");
+    Libro l2 = new Libro("Viaje al centro de la tierra", "Capitan", "2445151");
+    libros.insertarFinal(l);
+    libros.insertarFinal(l2);
+    System.out.println(libros.obtener(0));
+    System.out.println(libros.obtener(1));
+  }
 }
