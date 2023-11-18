@@ -2,12 +2,6 @@ package ar.mikellbobadilla.lista_enlazada;
 
 import ar.mikellbobadilla.clases.Libro;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Spliterator;
-import java.util.function.Consumer;
-
 public class ListaEnlazada {
 
   private Nodo cabeza = null;
@@ -29,23 +23,6 @@ public class ListaEnlazada {
       while (puntero.siguiente != null){
         puntero = puntero.siguiente;
       }
-      puntero.siguiente = nodo;
-    }
-    longitud++;
-  }
-
-  public void insertarDespues(int n, Libro libro){
-    Nodo nodo = new Nodo(libro);
-    if(cabeza == null){
-      cabeza = nodo;
-    }else {
-      Nodo puntero = cabeza;
-      int contador = 0;
-      while (contador < n && puntero.siguiente != null){
-        puntero = puntero.siguiente;
-        contador++;
-      }
-      nodo.siguiente = puntero.siguiente;
       puntero.siguiente = nodo;
     }
     longitud++;
@@ -146,5 +123,6 @@ public class ListaEnlazada {
     libros.insertarFinal(l2);
     System.out.println(libros.obtener(0));
     System.out.println(libros.obtener(1));
+    System.out.println(libros.estaVacia());
   }
 }
