@@ -23,9 +23,8 @@ public interface LinkedListImpl<E> {
 
     /**
      * Remove the first element
-     * @return true if was removed
      */
-    void remove();
+    void removeFirst();
 
     /**
      * Removes the last element
@@ -35,7 +34,6 @@ public interface LinkedListImpl<E> {
     /**
      * Removes the element at the specifies position int this list
      * @param index position
-     * @return true if was removed
      */
     void remove(int index);
 

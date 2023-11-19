@@ -1,8 +1,10 @@
 package ar.mikellbobadilla.lista_enlazada;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
-public class LinkedList<E> implements LinkedListImpl<E> {
+public class LinkedList<E> implements LinkedListImpl<E>, Iterable<E> {
 
     private Node<E> first;
     private Node<E> last;
@@ -24,15 +26,40 @@ public class LinkedList<E> implements LinkedListImpl<E> {
         return x;
     }
 
+    private void unlink(Node<E> x) {
+        Node<E> next = x.next;
+        Node<E> prev = x.prev;
+
+        if(prev == null)
+            first = next;
+        else {
+            prev.next = next;
+            x.prev = null;
+        }
+
+        if(next == null)
+            last = prev;
+        else {
+            next.prev = prev;
+            x.next = null;
+        }
+        size--;
+    }
+
 
     @Override
     public void addFirst(E e) {
-        Node<E> next = first.next;
-        Node<E> newNode = new Node<>(null, e, next);
-        first = newNode;
-        if(next == null)
-            last = newNode;
-        size++;
+        if(first != null) {
+            final Node<E> el = first;
+            Node<E> newNode = new Node<>(null, e, null);
+            newNode.next = el;
+            el.prev = newNode;
+            first = newNode;
+            if(el.next == null)
+                last = el;
+            size++;
+        }
+
     }
 
     @Override
@@ -57,28 +84,56 @@ public class LinkedList<E> implements LinkedListImpl<E> {
     }
 
     @Override
-    public void remove() {
-
+    public void removeFirst() {
+        if(first != null)
+            unlink(first);
     }
 
     @Override
     public void removeLast() {
-
+        if(last != null)
+            unlink(last);
     }
 
     @Override
     public void remove(int index) {
-
+        unlink(node(index));
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return first == null;
     }
 
     @Override
     public int getSize() {
-        return 0;
+        return size;
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new LinkedListIterator();
+    }
+
+    private class LinkedListIterator implements Iterator<E> {
+
+        private Node<E> current = first;
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public E next() {
+
+            if(!hasNext())
+                throw new NoSuchElementException("No elements in the list");
+
+            E item = current.item;
+            current = current.next;
+            return item;
+        }
     }
 
     private static class Node<E> {

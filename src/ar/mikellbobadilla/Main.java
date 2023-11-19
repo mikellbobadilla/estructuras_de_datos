@@ -12,8 +12,20 @@ public class Main {
         names.add("Como estas?");
         names.add("Esto es como que esta funcionando");
         names.add("Los videos que se esta mirando son raros");
+        names.add("Este es el ultimo comentario");
+        names.add("Este es otro ultimo comentario");
         names.addFirst("Primer comentario");
-        System.out.println(names.get(0));
-        System.out.println(names.get(4));
+        names.addFirst("Es es otro primer comentario");
+
+        names.removeFirst();
+        names.removeLast();
+        names.remove(1);
+
+        names.forEach(name -> {
+            System.out.println(name.toUpperCase());
+        });
+        System.out.println(names.getSize() + ": nombres");
+        System.out.println(names.isEmpty());
+
      }
 }
