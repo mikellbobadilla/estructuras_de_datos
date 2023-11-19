@@ -3,6 +3,9 @@ package ar.mikellbobadilla;
 
 import ar.mikellbobadilla.lista_enlazada.LinkedList;
 
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -16,5 +19,8 @@ public class Main {
         System.out.println(names.getSize());
 
         names.forEach(System.out::println);
+
+        Queue<String> authores = new PriorityQueue<>();
+        authores.poll();
      }
 }
