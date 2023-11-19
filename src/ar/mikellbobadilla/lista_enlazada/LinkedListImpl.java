@@ -1,6 +1,6 @@
 package ar.mikellbobadilla.lista_enlazada;
 
-public interface LinkList<E> {
+public interface LinkedListImpl<E> {
 
     /**
      * Add the element in the first position
@@ -26,6 +26,11 @@ public interface LinkList<E> {
      * @return true if was removed
      */
     void remove();
+
+    /**
+     * Removes the last element
+     */
+    void removeLast();
 
     /**
      * Removes the element at the specifies position int this list

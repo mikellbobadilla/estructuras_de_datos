@@ -1,15 +1,11 @@
 package ar.mikellbobadilla.cola;
 
 import ar.mikellbobadilla.clases.Trabajo;
-import org.w3c.dom.Node;
 
 public class Cola implements ColaProceso {
-
-
-
     private static class Nodo {
         private Trabajo trabajo;
-        private Node siguiente;
+        private Nodo siguiente;
         public Nodo(Trabajo trabajo) {
             this.trabajo = trabajo;
         }

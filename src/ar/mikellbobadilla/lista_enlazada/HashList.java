@@ -1,6 +1,6 @@
 package ar.mikellbobadilla.lista_enlazada;
 
-public class HashList<E> implements LinkList<E> {
+public class HashList<E> implements LinkedListImpl<E> {
 
     private Node<E> head = null;
     private Node<E> last = null;
