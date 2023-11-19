@@ -2,8 +2,6 @@ package ar.mikellbobadilla.lista_enlazada;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Spliterator;
-import java.util.function.Consumer;
 
 public class LinkedList<E> implements Iterable<E>{
 
@@ -123,17 +121,6 @@ public class LinkedList<E> implements Iterable<E>{
     public Iterator<E> iterator() {
         return new LinkedListIterator();
     }
-
-    @Override
-    public void forEach(Consumer<? super E> action) {
-        Iterable.super.forEach(action);
-    }
-
-    @Override
-    public Spliterator<E> spliterator() {
-        return Iterable.super.spliterator();
-    }
-
 
     private class LinkedListIterator implements Iterator<E> {
         private Node<E> current = head;
