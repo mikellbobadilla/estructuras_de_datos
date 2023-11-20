@@ -11,9 +11,17 @@ public class Cola implements ColaProceso {
         }
     }
 
+    private Nodo cabeza, ultimo;
+
     @Override
     public void encolar(Trabajo t) {
+        Nodo nuevoNodo = new Nodo(t);
+        if (cabeza == null) {
+            cabeza = nuevoNodo;
+            ultimo = nuevoNodo;
+        } else {
 
+        }
     }
 
     @Override

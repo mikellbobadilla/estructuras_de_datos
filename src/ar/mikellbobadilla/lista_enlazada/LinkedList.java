@@ -1,7 +1,6 @@
 package ar.mikellbobadilla.lista_enlazada;
 
 import java.util.Iterator;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 public class LinkedList<E> implements LinkedListImpl<E>, Iterable<E> {
@@ -45,7 +44,6 @@ public class LinkedList<E> implements LinkedListImpl<E>, Iterable<E> {
         }
         size--;
     }
-
 
     @Override
     public void addFirst(E e) {
