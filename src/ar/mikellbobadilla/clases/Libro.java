@@ -1,5 +1,7 @@
 package ar.mikellbobadilla.clases;
 
+import java.util.Objects;
+
 public class Libro {
 
   private String titulo;
@@ -34,6 +36,23 @@ public class Libro {
 
   public void setIsbn(String isbn) {
     this.isbn = isbn;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Libro libro = (Libro) o;
+    return Objects.equals(titulo, libro.titulo)
+                          &&
+           Objects.equals(autor, libro.autor)
+                          &&
+           Objects.equals(isbn, libro.isbn);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(titulo, autor, isbn);
   }
 
   @Override
