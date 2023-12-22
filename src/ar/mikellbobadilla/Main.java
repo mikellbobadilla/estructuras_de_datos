@@ -1,7 +1,10 @@
 package ar.mikellbobadilla;
 
 
+import ar.mikellbobadilla.binaryTree.BST;
 import ar.mikellbobadilla.clases.Empleado;
+
+import java.util.Arrays;
 
 public class Main {
 
@@ -12,7 +15,13 @@ public class Main {
         Empleado e4 = new Empleado(33, "José Gómez", "Contabilidad", "B-96");
         Empleado e5 = new Empleado(64, "Francisco Pérez", "Marketing", "A-69");
         Empleado e6 = new Empleado(55, "Javier López", "Informática", "B-161");
+        Empleado e7 = new Empleado(10, "Javier López", "Informática", "B-162");
 
+
+        BST bst = new BST();
+        Arrays.asList(e1, e2, e3, e4, e5, e6, e7).forEach(bst::insertar);
+
+        bst.preOrden();
 
     }
 }

@@ -51,6 +51,16 @@ public class Empleado implements Comparable<Empleado> {
     }
 
     @Override
+    public String toString() {
+        return "Empleado{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", puesto='" + puesto + '\'' +
+                ", despacho='" + despacho + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -65,8 +75,6 @@ public class Empleado implements Comparable<Empleado> {
 
     @Override
     public int compareTo(Empleado o) {
-        if (id == o.getId()) return 0;
-        else if (id < o.getId()) return -1;
-        else return 1;
+        return Integer.compare(id, o.getId());
     }
 }
